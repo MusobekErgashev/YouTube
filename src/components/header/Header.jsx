@@ -1,17 +1,27 @@
 import React from 'react'
 import styles from "./header.module.css"
 import logo from "../../assets/Home/logo.png"
-import menu from "../../assets/Home/menu.png"
+import menuIcon from "../../assets/Home/menu.png"
 import search from "../../assets/Home/search.png"
 import voiceSearch from "../../assets/Home/mic.png"
 import create from "../../assets/Home/create.png"
 import notification from "../../assets/Home/notification.png"
 
-const Header = () => {
+const Header = ({ isMenuOpen, setIsMenuOpen }) => {
+
+    function menuFunc() {
+        if(isMenuOpen) {
+            setIsMenuOpen(false)
+        } else {
+            setIsMenuOpen(true)
+        }
+    }
+    
+
     return (
         <div className={styles.header}>
             <div className={styles.left_side}>
-                <img src={menu} alt="" onClick={() => {}} />
+                <img src={menuIcon} alt="" onClick={menuFunc} />
                 <img src={logo} alt="" />
             </div>
 
